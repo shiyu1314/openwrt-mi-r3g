@@ -32,6 +32,7 @@ cp -rf luci-base feeds/luci/modules
 cp -rf luci-mod-status feeds/luci/modules/
 cp -rf dnsmasq package/network/services/
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+wget -N https://raw.githubusercontent.com/immortalwrt/immortalwrt/openwrt-23.05/package/kernel/mt76/patches/0001-mt76-allow-VHT-rate-on-2.4GHz.patch -P package/kernel/mt76/patches/
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
