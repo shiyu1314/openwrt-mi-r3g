@@ -19,6 +19,7 @@ git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/immortalwrt packag
 git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/immortalwrt package/network/services/dnsmasq 
 git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/luci modules/luci-base
 git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/luci modules/luci-mod-status
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-syncdial
 
 ./scripts/feeds update -a
 rm -rf feeds/packages/net/mosdns
@@ -27,6 +28,7 @@ rm -rf feeds/luci/modules/luci-base
 rm -rf feeds/luci/modules/luci-mod-status
 rm -rf package/network/services/dnsmasq
 cp -rf emortal package
+cp -rf luci-app-syncdial package
 cp -rf mhz package/utils/
 cp -rf luci-base feeds/luci/modules
 cp -rf luci-mod-status feeds/luci/modules/
@@ -39,6 +41,7 @@ wget -N https://raw.githubusercontent.com/immortalwrt/immortalwrt/openwrt-23.05/
 
 sed -i "s/192.168.1.1/192.168.2.1/" package/base-files/files/bin/config_generate
 sed -i "s/hostname='.*'/hostname='MI-R3G'/g" package/base-files/files/bin/config_generate
+sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 sudo rm -rf package/base-files/files/etc/banner
 
