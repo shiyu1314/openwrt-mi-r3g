@@ -109,7 +109,7 @@ jobs:
         CONFIG_TARGET_ramips=y
         CONFIG_TARGET_ramips_mt7621=y
         CONFIG_TARGET_ramips_mt7621_DEVICE_xiaomi_mi-router-3g=y
-        #CONFIG_PACKAGE_dnsmasq is not set
+        # CONFIG_PACKAGE_dnsmasq is not set
 
         CONFIG_PACKAGE_dnsmasq-full=y
         CONFIG_PACKAGE_luci-app-firewall=y
