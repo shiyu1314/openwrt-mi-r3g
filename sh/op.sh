@@ -13,7 +13,6 @@ function git_sparse_clone() {
 echo 'src-git xd https://github.com/shiyu1314/openwrt-packages' >>feeds.conf.default
 
 git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/immortalwrt package/utils/mhz
-git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/immortalwrt package/network/services/dnsmasq
 git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/luci modules/luci-base
 git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/luci modules/luci-mod-status
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-syncdial
@@ -28,12 +27,10 @@ rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/modules/luci-base
 rm -rf feeds/luci/modules/luci-mod-status
-rm -rf package/network/services/dnsmasq
 cp -rf luci-app-syncdial package
 cp -rf mhz package/utils/
 cp -rf luci-base feeds/luci/modules
 cp -rf luci-mod-status feeds/luci/modules/
-cp -rf dnsmasq package/network/services/
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
